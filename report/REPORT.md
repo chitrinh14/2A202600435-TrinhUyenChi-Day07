@@ -115,7 +115,7 @@ Chạy `ChunkingStrategyComparator().compare()` trên 6 tài liệu (22985 ký t
 |-----------|----------|----------------------|-----------|----------|
 | Tôi | RecursiveChunker | 8/10 | Lấy trọn vẹn ngữ cảnh của từng tính năng. Vượt qua 80% bài test thực tế, cung cấp dữ liệu cực chuẩn cho AI mà không bị lẫn lộn thông số. | Sẽ hơi dư thừa text một chút nếu người dùng chỉ hỏi một câu rất ngắn gọn (như chỉ hỏi về giá). |
 | Trang | FixedSizeChunker | 8/10 |- Giữ được context giữa các chunk nhờ overlap <br> - Cải thiện độ chính xác retrieval so với không overlap | - Tăng số lượng chunk → tốn tài nguyên hơn <br> - Có thể lặp lại thông tin |
-| Phương | RecursiveChunker | 6/10 | | |
+| Phương | RecursiveChunker | 6/10 | Ngữ cảnh liền mạch | Chunk hơi lớn | 
 | Nghĩa | KeywordChunk | 6/10 | Kết quả tốt nếu keyword đúng | Phụ thuộc vào keyword |
 
 
