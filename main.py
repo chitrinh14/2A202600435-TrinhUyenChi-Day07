@@ -6,6 +6,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from src.chunking import RecursiveChunker
 from src.agent import KnowledgeBaseAgent
 from src.embeddings import (
     EMBEDDING_PROVIDER_ENV,
@@ -19,19 +20,23 @@ from src.models import Document
 from src.store import EmbeddingStore
 
 SAMPLE_FILES = [
-    "data/python_intro.txt",
-    "data/vector_store_notes.md",
-    "data/rag_system_design.md",
-    "data/customer_support_playbook.txt",
-    "data/chunking_experiment_report.md",
-    "data/vi_retrieval_notes.md",
+    "mock_data/sales_0426.md",
+    "mock_data/sales_0326.md",
+    "mock_data/battery_0326.md",
+    "mock_data/charging_ev_0326.md",
+    "mock_data/discontinued_models_0326.md",
+    "mock_data/gas_to_ev_0326.md",
 ]
 
+# Nhớ thêm dòng import này ở đầu file main.py nhé
+from src.chunking import RecursiveChunker
 
 def load_documents_from_files(file_paths: list[str]) -> list[Document]:
     """Load documents from file paths for the manual demo."""
     allowed_extensions = {".md", ".txt"}
     documents: list[Document] = []
+    
+    chunker = RecursiveChunker(chunk_size=500)
 
     for raw_path in file_paths:
         path = Path(raw_path)
@@ -45,16 +50,23 @@ def load_documents_from_files(file_paths: list[str]) -> list[Document]:
             continue
 
         content = path.read_text(encoding="utf-8")
-        documents.append(
-            Document(
-                id=path.stem,
-                content=content,
-                metadata={"source": str(path), "extension": path.suffix.lower()},
+        
+        chunks = chunker.chunk(content)
+        
+        for i, chunk_text in enumerate(chunks):
+            documents.append(
+                Document(
+                    id=f"{path.stem}_chunk_{i}",
+                    content=chunk_text,
+                    metadata={
+                        "source": str(path), 
+                        "extension": path.suffix.lower(),
+                        "chunk_index": i
+                    },
+                )
             )
-        )
 
     return documents
-
 
 def demo_llm(prompt: str) -> str:
     """A simple mock LLM for manual RAG testing."""
