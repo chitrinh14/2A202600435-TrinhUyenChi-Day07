@@ -201,13 +201,13 @@ Chạy 5 benchmark queries của nhóm trên implementation cá nhân của bạ
 
 | # | Query | Top-1 Retrieved Chunk (tóm tắt) | Score | Relevant? | Agent Answer (tóm tắt) |
 |---|-------|--------------------------------|-------|-----------|------------------------|
-| 1 | Chương trình thu xăng đổi điện kết thúc vào ngày nào? | gas_to_ev_0326.md | 0.7141 | No | ...đổi từ xe xăng sang xe điện VinFast kết thúc vào ngày 31/03/2026... |
-| 2 | Tôi muốn mua lại pin thuê của xe VF e34 loại Gotion, giá năm 2025 là bao nhiêu? | battery_0326.md | 0.7731 | Yes | ...giá bán pin thuê của xe VF e34 loại Pin Gotion/SDI vào năm 2025 là **90.000.000 VNĐ**. |
-| 3 | Tôi mua xe VF 8 ngày 15/02/2026 thì được ưu đãi sạc pin như thế nào? | charging_ev_0326.md | 0.8182 | Yes | ...ưu đãi miễn phí 10 lần sạc đầu tiên/xe/tháng... |
-| 4 | VinFast có hỗ trợ đổi xe máy điện cũ sang ô tô điện VF 3 không? | gas_to_ev_0326.md | 0.7992 | Yes | ...không có thông tin về chính sách hỗ trợ đổi xe máy điện cũ sang ô tô điện VF3. |
-| 5 | Ưu đãi giảm giá cho xe VF 9 sản xuất năm 2023 là bao nhiêu? | discontinued_models_0326.md | 0.7891 | Yes | Ưu đãi giảm giá cho xe VF 9 Plus sản xuất năm 2023 là 250.000.000 VNĐ. |
+| 1 | Chương trình thu xăng đổi điện kết thúc vào ngày nào? | ### 3. Chương trình thu xăng đổi điện: <br>- Ưu đãi: Khách hàng... | 0.7736 | Yes | ...đổi từ xe xăng sang xe điện VinFast kết thúc vào ngày 31/03/2026... |
+| 2 | Tôi muốn mua lại pin thuê của xe VF e34 loại Gotion, giá năm 2025 là bao nhiêu? | Dòng xe Phiên bản Loại pin 2023 2024 2025 VF 3 Pin Gotion 65.600.000 VNĐ 73.800.000 VNĐ | 0.8017 | Yes | ...giá bán pin thuê của xe VF e34 loại Pin Gotion/SDI vào năm 2025 là **90.000.000 VNĐ**. |
+| 3 | Tôi mua xe VF 8 ngày 15/02/2026 thì được ưu đãi sạc pin như thế nào? | # Thông báo Chính sách ưu đãi sạc pin cho các dòng xe ô tô điện VinFast tại Việt Nam... | 0.7964 | Yes | ...ưu đãi miễn phí 10 lần sạc đầu tiên/xe/tháng... |
+| 4 | VinFast có hỗ trợ đổi xe máy điện cũ sang ô tô điện VF 3 không? | **Ưu đãi:** Khách hàng đang sở hữu xe xăng có nhu cầu bán và chuyển đổi sang xe điện VinFast sẽ được hỗ trợ thêm 3% MSRP bao gồm VAT... | 0.8185 | Yes | ...không có thông tin về chính sách hỗ trợ đổi xe máy điện cũ sang ô tô điện VF3. |
+| 5 | Ưu đãi giảm giá cho xe VF 9 sản xuất năm 2023 là bao nhiêu? | 3. Chính sách bán hàng cho xe VF 8 và VF 9 kèm pin SDI và VF 9 bản điều hòa 2 vùng đã dừng sản xuất:... | 0.8238 | Yes | Ưu đãi giảm giá cho xe VF 9 Plus sản xuất năm 2023 là 250.000.000 VNĐ. |
 
-**Bao nhiêu queries trả về chunk relevant trong top-3?** 4 / 5
+**Bao nhiêu queries trả về chunk relevant trong top-3?** 5 / 5
 
 ---
 
